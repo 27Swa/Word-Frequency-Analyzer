@@ -2,11 +2,20 @@
 import matplotlib.pyplot as plt
 from collections import Counter
 import re
+import arabic_reshaper as arre
+from bidi.algorithm import get_display
 
 def handle_read_file():       
         with open(fpath,"r",encoding="utf-8") as file:
             for i in file:
-                x = re.findall(r"[a-zA-Z]+",i.lower())
+                x = []
+                for l in re.findall(r"[أ-يa-zA-Z]+",i):
+                    if re.search(r"[a-zA-Z]", l): 
+                        x.append(l.lower())
+                    else:
+                        # Handling in case having arabic words
+                        reshaped = arre.reshape(l)   
+                        x.append(get_display(reshaped))
                 cnt.update(x)
 def display_most_frequent():
         top_words = cnt.most_common(10)
