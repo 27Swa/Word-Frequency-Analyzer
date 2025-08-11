@@ -17,8 +17,8 @@ def handle_read_file():
                         reshaped = arre.reshape(l)   
                         x.append(get_display(reshaped))
                 cnt.update(x)
-def display_most_frequent():
-        top_words = cnt.most_common(10)
+def display_most_frequent(n = 10):
+        top_words = cnt.most_common(n)
         word,cnts = zip(*top_words)
 
         print(f"Word  :  Frequency")
@@ -38,7 +38,8 @@ if __name__ == '__main__':
 
     try:
         handle_read_file()
-        display_most_frequent()
+        n = int(input("Enter number of common words you want to display: "))
+        display_most_frequent(n)
     except FileNotFoundError:
         print("Wrong File Path Entered!!!")
     except re.error:
