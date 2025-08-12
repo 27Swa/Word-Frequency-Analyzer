@@ -22,8 +22,8 @@
  - **Python 3.13.5**
 
 ### Tools
-- **VSCode** 
-- **Git & GitHub**
+- **Visual Studio Code (VSCode)**
+- **Git** & **GitHub**
 
 ### Libraries:
 
@@ -36,4 +36,6 @@
 ## Extra Features:
 - Created generate_testcases.py to generate sample test case files.
 - Supports Arabic words, handling correct reshaping and display direction.
-- Allows user input to specify how many top frequent words to display.س
+- Allows user input to specify how many top frequent words to display.
+- Added an option for the user to choose which types of words to include in the analysis 
+  (e.g., English words only, Arabic words only, numbers only, or mixed).
