@@ -33,6 +33,28 @@
 - **arabic_reshaper**: Reshapes Arabic text for correct display, fixing letter forms.
 - **bidi.algorithm.get_display**: Adjusts bidirectional text (e.g.,  Arabic mixed with English) for proper right-to-left display.
 - **pandas**: Used for data manipulation and tabular display.
+
+## Output Files
+
+- **CSV File**  
+  The program saves the word frequency results in a `.csv` file for easy access and further analysis.  
+  Each row contains a word and its corresponding frequency count.
+
+- **Bar Chart Image**  
+  A bar chart visualizing the top frequent words is automatically generated and saved as an image file.  
+  This helps users quickly understand the distribution of word usage.
+
+---
+## Exception Handling
+
+The program includes robust exception handling to ensure smooth execution and clear feedback for users.  
+Handled exceptions include:
+
+- **FileNotFoundError**: Triggered when the provided file path does not exist.
+- **re.error**: Raised if the regular expression pattern is invalid.
+- **ValueError**: Occurs when there's no valid data to display (e.g., empty file).
+- **General Exception**: Catches any unexpected errors and displays their type and message.
+
 ## Extra Features:
 - Includes `generate_testcases.py` to create sample test case files.
 - Supports Arabic words, handling correct reshaping and display direction.
