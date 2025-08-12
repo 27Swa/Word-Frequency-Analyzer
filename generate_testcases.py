@@ -63,4 +63,4 @@ if __name__ == '__main__':
     # 4. Arabic testcase
     generate_test(a,300,"Test cases/5.txt")
     # 5. Mix data english,arabic
-    generate_test(mm,1000,"Test cases/6.txt")
+    generate_test(mm,2000,"Test cases/6.txt")
