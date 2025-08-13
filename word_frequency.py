@@ -99,7 +99,7 @@ if __name__ == '__main__':
         n = int(op) if op.isdigit() else 10
         display_most_frequent(n)        
         # save data (all words with their frequencies) in csv file
-        words_,words_counter = zip(*counter.items())
+        words_,words_counter = zip(*counter.most_common(len(counter.items())))
         df = pd.DataFrame({'Word':words_,'Frequency':words_counter})
         df.to_csv('Results/data.csv',index= False)
     except FileNotFoundError:
@@ -108,5 +108,5 @@ if __name__ == '__main__':
         print("Error in Regular expression")
     except ValueError:
         print("There is nothing to display")
-    """except:
-        print("A Problem Occured, Please check data entered")"""
+    except:
+        print("A Problem Occured, Please check data entered")
