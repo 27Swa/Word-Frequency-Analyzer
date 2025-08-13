@@ -47,7 +47,7 @@
 - **Bar Chart Image**  
   A bar chart visualizing the top frequent words is automatically generated and saved as an image file.  
   This helps users quickly understand the distribution of word usage.
-![Word Frequency Bar Chart](Results\BOW.png)
+![Word Frequency Bar Chart](images\BOW.png)
 ---
 ## Exception Handling
 
