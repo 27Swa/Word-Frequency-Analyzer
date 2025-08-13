@@ -11,15 +11,11 @@ def handle_word(w):
     """
         based on the words pattern make update as follows:
             * English words --> make it all in lower case
-            * Arabic words --> fix letters forms for correct display & adjust bidirectional text 
-            * Numbers --> Nothing
+            * Arabic words, Numbers --> Nothing
     """
     if re.match(patterns[1], w): 
          return w.lower()
-    elif re.match(patterns[2], w):
-        reshaped = arre.reshape(w)  
-        return get_display(reshaped)
-    elif re.match(patterns[3],w):
+    elif any(re.match(p, w) for p in (patterns[2],patterns[4])):
         return w
 
 def handle_read_file(pattern): 
@@ -32,6 +28,7 @@ def handle_read_file(pattern):
         for i in file:
             for l in re.findall(pattern,re.sub(r'[\u0640\u064B-\u0652]', '', i)):
                 yield handle_word(l)
+
 def display_most_frequent(n):
     """
        - Takes n which represents number of words wants to display
@@ -42,20 +39,26 @@ def display_most_frequent(n):
     top_words = counter.most_common(n)
     if n > len(top_words):
         print(f"In this data there are {len(top_words)} words")
+    
+    # getting data updated for displaying purpose
     word,word_frequency = zip(*top_words)
+    word = [get_display(arre.reshape(w)) if re.match(patterns[2], w) else w for w in word]
+
+    # Displaying data in table in terminal
     table_width = len("|     Word     | Frequency |")
+    col_width = 18
+    word_col = col_width - len(" Word ")
+    frequency_col = col_width - len("Frequency")
+    
+    print(f"{'-'*table_width}")   
+    # This operation ^ to make the words put in the center of its index 
+    print("| {:^{}} | {:^{}} |".format("Word",word_col,"Frequency",frequency_col))
     print(f"{'-'*table_width}")
-    print(f"|     Word     | Frequency |")
-    print(f"{'-'*table_width}")
-
     for i in range(len(word)):
-        # Calculate number of spaces needed so that the frequencies
-        # will be put in the same index for all words displayed
-        line = len("|     Word   ") - len(word[i]) + 1
-        end_table = len("uency ") - len(str(word_frequency[i])) 
-        print(f"|{word[i]}{' '* line}|{' '* len(" Freq")}{word_frequency[i]}{' '*end_table}|")
+       print("| {:<{}} | {:>{}} |".format(word[i],word_col, word_frequency[i],frequency_col))
     print(f"{'-'*table_width}")
 
+    # Ploting data in bar chart
     plt.figure(figsize=(12,6))
     plt.bar(word,word_frequency)
     plt.xlabel("Word")
@@ -105,5 +108,5 @@ if __name__ == '__main__':
         print("Error in Regular expression")
     except ValueError:
         print("There is nothing to display")
-    except:
-        print("A Problem Occured, Please check data entered")
+    """except:
+        print("A Problem Occured, Please check data entered")"""

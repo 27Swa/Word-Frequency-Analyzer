@@ -62,3 +62,4 @@ Handled exceptions include:
 - Provides an option for the user to choose which types of words to include in the analysis:  
   *(e.g., English words only, Arabic words only, numbers only, or mixed)*.
 
+> ⚠️ Note: If Arabic text looks distorted in Excel, it's likely a display issue. The file is UTF-8 encoded and displays correctly in VS Code or Notepad.
