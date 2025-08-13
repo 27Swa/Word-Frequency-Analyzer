@@ -15,6 +15,7 @@
 3. Enter the number that represents the word type you want to analyze for frequency.
 4. After filtering and calculating word frequencies, enter a number `n` to display the top `n` most frequent words with their counts, or press Enter to use the default value.
 
+![Terminal Output](images/run_code.png)
 ---
 
 ## Languages, Tools & Libraries used:
@@ -37,13 +38,16 @@
 ## Output Files
 
 - **CSV File**  
-  The program saves the word frequency results in a `.csv` file for easy access and further analysis.  
-  Each row contains a word and its corresponding frequency count.
+  - The program saves the word frequency results in a `.csv` file for easy access and further analysis.  
+  - Each row contains a word and its corresponding frequency count.
+  <p align="center">
+  <img src="images\part_of_csv_file.png" alt="Word Frequency Table" width="200"/>
+  </p>
 
 - **Bar Chart Image**  
   A bar chart visualizing the top frequent words is automatically generated and saved as an image file.  
   This helps users quickly understand the distribution of word usage.
-
+![Word Frequency Bar Chart](Results\BOW.png)
 ---
 ## Exception Handling
 
