@@ -41,7 +41,7 @@
   - The program saves the word frequency results in a `.csv` file for easy access and further analysis.  
   - Each row contains a word and its corresponding frequency count.
   <p align="center">
-  <img src="images\part_of_csv_file.png" alt="Word Frequency Table" width="200"/>
+  <img src="images\part_of_csvfile.png" alt="Word Frequency Table" width="200"/>
   </p>
 
 - **Bar Chart Image**  
